@@ -1,11 +1,12 @@
-import React, { useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import getDay from 'date-fns/getDay';
 
 import LinearGradient from 'react-native-linear-gradient';
-
 import Icon from 'react-native-vector-icons/Feather';
-import ChurchImg from '../../assets/igreja-matriz.jpg';
+
+import api from '../../services/api';
 
 import {
   Container,
@@ -22,19 +23,58 @@ import {
   ScheduleContainer,
   SundayContainer,
   WeekDayText,
-  TodayTag,
-  TodayTagText,
   HourContainer,
   HourDivider,
   Hour,
 } from './styles';
 
+interface RouteParams {
+  churchId: string;
+}
+
+export interface Church {
+  id: string;
+  name: string;
+  image_url: string;
+  address: string;
+  neighborhood: string;
+  city: string;
+  zipcode: string;
+  addressComplement: string;
+  massHours: {
+    sunday: [];
+    monday: [];
+    tuesday: [];
+    wedsneday: [];
+    thursday: [];
+    friday: [];
+    saturday: [];
+  };
+}
+
 const ChurchDetails: React.FC = () => {
+  const [church, setChurch] = useState<Church>({} as Church);
+
   const { goBack } = useNavigation();
+
+  const route = useRoute();
+  const routeParams = route.params as RouteParams;
+  const [selectedChurchId] = useState(routeParams.churchId);
+
+  useEffect(() => {
+    api.get(`/churchs/${selectedChurchId}`).then(response => {
+      setChurch(response.data);
+    });
+  }, []);
 
   const navigateBack = useCallback(() => {
     goBack();
   }, [goBack]);
+
+  // const checkTodaysWeekday = useCallback(() => {
+  //   const today = new Date();
+  //   if (
+  // }, []);
 
   return (
     <LinearGradient
@@ -47,14 +87,15 @@ const ChurchDetails: React.FC = () => {
         </BackButton>
 
         <ImgContainer>
-          <ChurchImage source={ChurchImg} />
+          <ChurchImage source={{ uri: church.image_url }} />
         </ImgContainer>
 
         <InfoContainer>
-          <ChurchName>Nossa Senhora de Fátima</ChurchName>
+          <ChurchName>{church.name}</ChurchName>
           <ChurchAdress>
-            Av. 15 de Novembro - Central, Santana - AP, 68925-141 Em frente a
-            Praça Cívica de Santana
+            {church.address} - {church.neighborhood}, {church.city},{' '}
+            {church.zipcode} {'\n'}
+            {church.addressComplement}
           </ChurchAdress>
 
           <LocalizationButton>
@@ -79,9 +120,10 @@ const ChurchDetails: React.FC = () => {
             <SundayContainer>
               <WeekDayText>Segunda-feira</WeekDayText>
               <HourContainer>
-                <Hour>07:30</Hour>
-                <Hour>07:30</Hour>
-                <Hour>07:30</Hour>
+                {church.massHours.sunday.map(hour => (
+                  <Hour>{hour}</Hour>
+                ))}
+                ;
               </HourContainer>
             </SundayContainer>
 
@@ -124,14 +166,9 @@ const ChurchDetails: React.FC = () => {
             <HourDivider />
 
             <SundayContainer>
-              <WeekDayText isToday={true}>
-                Sábado
-                <TodayTag>
-                  <TodayTagText>Hoje</TodayTagText>
-                </TodayTag>
-              </WeekDayText>
+              <WeekDayText>Sábado</WeekDayText>
               <HourContainer>
-                <Hour isToday={true}>07:30</Hour>
+                <Hour>07:30</Hour>
               </HourContainer>
             </SundayContainer>
           </ScheduleContainer>

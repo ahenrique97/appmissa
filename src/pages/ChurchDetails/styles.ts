@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 
 import { RectButton } from 'react-native-gesture-handler';
 
-interface MassDayProps {
+interface Today {
   isToday?: boolean;
 }
 
@@ -22,6 +22,8 @@ export const ChurchImage = styled.Image`
   height: 120px;
   width: 120px;
   border-radius: 60px;
+
+  border: 4px solid #fff;
 `;
 
 export const InfoContainer = styled.View`
@@ -93,7 +95,7 @@ export const SundayContainer = styled.View`
   margin-bottom: 3px;
 `;
 
-export const WeekDayText = styled.Text<MassDayProps>`
+export const WeekDayText = styled.Text<Today>`
   font-size: 14px;
   font-family: 'Roboto-Regular';
 
@@ -116,7 +118,7 @@ export const HourDivider = styled.View`
   background-color: #d4d4d4;
 `;
 
-export const Hour = styled.Text<MassDayProps>`
+export const Hour = styled.Text<Today>`
   font-size: 14px;
   font-family: 'Roboto-Regular';
   flex-direction: column;
@@ -126,19 +128,4 @@ export const Hour = styled.Text<MassDayProps>`
     css`
       font-family: 'Roboto-Bold';
     `}
-`;
-
-export const TodayTag = styled.View`
-  position: absolute;
-  padding: 2px;
-  border-radius: 3px;
-  background-color: #009cff;
-
-  margin-left: 30px;
-`;
-
-export const TodayTagText = styled.Text`
-  font-size: 12px;
-  font-family: 'Roboto-Regular';
-  color: #fff;
 `;

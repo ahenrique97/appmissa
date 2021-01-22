@@ -1,4 +1,7 @@
 import styled from 'styled-components/native';
+import { FlatList } from 'react-native';
+import { Church } from './index';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   padding: 20px 20px;
@@ -25,7 +28,16 @@ export const SearchBar = styled.TextInput`
   font-size: 16px;
 `;
 
-export const ChurchList = styled.TouchableOpacity`
+export const ChurchsList = styled(FlatList as new () => FlatList<Church>)``;
+
+export const ChurchListTitle = styled.Text`
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #000;
+  font-family: 'Roboto-Bold';
+`;
+
+export const ChurchContainer = styled(RectButton)`
   width: 100%;
   height: 99px;
   margin-bottom: 10px;
@@ -47,7 +59,7 @@ export const ChurchImage = styled.Image`
 `;
 
 export const TextContainer = styled.View`
-  margin-left: 20px;
+  margin: 0 20px 0 20px;
 `;
 
 export const Name = styled.Text`
@@ -56,7 +68,7 @@ export const Name = styled.Text`
   font-family: 'Roboto-Bold';
 `;
 
-export const Adress = styled.Text`
+export const Address = styled.Text`
   font-size: 13px;
   color: #6a6a6a;
   font-family: 'Roboto-Bold';

@@ -1,29 +1,55 @@
-import React, { useCallback } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import React, { useCallback, useState, useEffect } from 'react';
+import { StyleSheet } from 'react-native';
 
 import {
   Container,
   SearchBar,
-  ChurchList,
+  ChurchsList,
+  ChurchListTitle,
+  ChurchContainer,
   ChurchImage,
   SearchBarContainer,
   TextContainer,
   Name,
-  Adress,
+  Address,
 } from './styles';
 
+import api from '../../services/api';
+
 import Icon from 'react-native-vector-icons/Feather';
-import ChurchImg from '../../assets/igreja-matriz.jpg';
 
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
+export interface Church {
+  id: number;
+  name: string;
+  address: string;
+  neighborhood: string;
+  image_url: string;
+}
+
 const Home: React.FC = () => {
+  const [churchs, setChurchs] = useState<Church[]>([]);
+
   const { navigate } = useNavigation();
 
-  const handleNavigate = useCallback(() => {
-    navigate('ChurchDetails');
+  useEffect(() => {
+    async function loadChurches(): Promise<void> {
+      await api.get('/churchs').then(response => {
+        setChurchs(response.data);
+      });
+    }
+
+    loadChurches();
   }, []);
+
+  const navigateToChurchDetails = useCallback(
+    (churchId: number) => {
+      navigate('ChurchDetails', { churchId });
+    },
+    [navigate],
+  );
 
   return (
     <>
@@ -37,119 +63,28 @@ const Home: React.FC = () => {
             <Icon name="search" size={24} color="#2FA8F3" />
           </SearchBarContainer>
 
-          <ScrollView>
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
+          <ChurchsList
+            data={churchs}
+            keyExtractor={church => church.id.toString()}
+            ListHeaderComponent={<ChurchListTitle>Igrejas</ChurchListTitle>}
+            renderItem={({ item: church }) => (
+              <ChurchContainer
+                onPress={() => navigateToChurchDetails(church.id)}
+              >
+                <ChurchImage
+                  source={{ uri: church.image_url }}
+                  style={{ width: 62, height: 62 }}
+                />
 
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
-
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
-
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
-
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
-
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
-
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-
-            <ChurchList
-              onPress={() => {
-                handleNavigate();
-              }}
-            >
-              <ChurchImage
-                source={ChurchImg}
-                style={{ width: 62, height: 62 }}
-              />
-
-              <TextContainer>
-                <Name>Nossa Senhora de Fátima</Name>
-                <Adress>Av: 15 de novembro, Centro</Adress>
-              </TextContainer>
-            </ChurchList>
-          </ScrollView>
+                <TextContainer>
+                  <Name>{church.name}</Name>
+                  <Address>
+                    {church.address}, {church.neighborhood}
+                  </Address>
+                </TextContainer>
+              </ChurchContainer>
+            )}
+          ></ChurchsList>
         </Container>
       </LinearGradient>
     </>

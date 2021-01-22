@@ -1,0 +1,99 @@
+{
+  "churchs": [
+    {
+      "id": 0,
+      "image_url": "https://fastly.4sqi.net/img/general/200x200/19301572_Jcq_LaLOMe_RMT7wWcvbmN78-7CLmsELZV5vSohNifo.jpg",
+      "name": "Nossa Senhora de Fátima",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "massHours": {
+        "sunday": ["07:00", "09:30", "19:30"],
+        "monday": [],
+        "tuesday": ["18:00"],
+        "wednesday": ["18:00"],
+        "thursday": ["18:00"],
+        "friday": ["18:00"],
+        "saturday": ["19:30"]
+      }
+    },
+    {
+      "id": 1,
+      "image_url": "https://ocnoticias.com.br/wp-content/uploads/2020/06/paroquiasantanaap.jpg",
+      "name": "Nossa Senhora do Perpétuo Socorro",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "massHours": {
+        "sunday": ["07:00", "09:30", "19:30"],
+        "monday": [],
+        "tuesday": ["18:00"],
+        "wednesday": ["18:00"],
+        "thursday": ["18:00"],
+        "friday": ["18:00"],
+        "saturday": ["19:30"]
+      }
+    },
+    {
+      "id": 2,
+      "image_url": "https://1.bp.blogspot.com/-hydf6n1kAm0/Wk5NZg86asI/AAAAAAAANfM/dm62dU40NAABC_GMTzD38Ln-1CqyhB0rACLcBGAs/s1600/P1060576.JPG",
+      "name": "Santa Rita de Cássia",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "massHours": {
+        "sunday": ["07:00", "09:30", "19:30"],
+        "monday": [],
+        "tuesday": ["18:00"],
+        "wednesday": ["18:00"],
+        "thursday": ["18:00"],
+        "friday": ["18:00"],
+        "saturday": ["19:30"]
+      }
+    },
+    {
+      "id": 3,
+      "image_url": "https://i.imgur.com/YlHmrGh.jpg",
+      "name": "São João",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "massHours": {
+        "sunday": ["07:00", "09:30", "19:30"],
+        "monday": [],
+        "tuesday": ["18:00"],
+        "wednesday": ["18:00"],
+        "thursday": ["18:00"],
+        "friday": ["18:00"],
+        "saturday": ["19:30"]
+      }
+    },
+    {
+      "id": 4,
+      "image_url": "https://lh3.googleusercontent.com/proxy/4zSSJmvTvUVLf9jlz-vz7C5CHjYS4LDBYbBcoRc1poznWD22v7RqQ8Ji2lwBvfpP-YPYZjoQZZ3FiZ2n9-WjXcQU3hqwPE2HBQ",
+      "name": "São Pio de Pietrelcina",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "massHours": {
+        "sunday": ["07:00", "09:30", "19:30"],
+        "monday": [],
+        "tuesday": ["18:00"],
+        "wednesday": ["18:00"],
+        "thursday": ["18:00"],
+        "friday": ["18:00"],
+        "saturday": ["19:30"]
+      }
+    }
+  ]
+}

@@ -12,7 +12,7 @@ const AppRoutes: React.FC = () => (
     screenOptions={{
       headerShown: false,
     }}
-    initialRouteName="ChurchDetails"
+    initialRouteName="Home"
   >
     <App.Screen name="Home" component={Home} />
     <App.Screen name="ChurchDetails" component={ChurchDetails} />
