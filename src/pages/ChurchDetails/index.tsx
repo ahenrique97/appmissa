@@ -41,19 +41,21 @@ export interface Church {
   city: string;
   zipcode: string;
   addressComplement: string;
-  massHours: {
-    sunday: [];
-    monday: [];
-    tuesday: [];
-    wedsneday: [];
-    thursday: [];
-    friday: [];
-    saturday: [];
-  };
+}
+
+export interface MassHours {
+  sunday: [];
+  monday: [];
+  tuesday: [];
+  wednesday: [];
+  thursday: [];
+  friday: [];
+  saturday: [];
 }
 
 const ChurchDetails: React.FC = () => {
   const [church, setChurch] = useState<Church>({} as Church);
+  const [massHours, setMassHours] = useState<MassHours>();
 
   const { goBack } = useNavigation();
 
@@ -64,17 +66,13 @@ const ChurchDetails: React.FC = () => {
   useEffect(() => {
     api.get(`/churchs/${selectedChurchId}`).then(response => {
       setChurch(response.data);
+      setMassHours(response.data.massHours);
     });
   }, []);
 
   const navigateBack = useCallback(() => {
     goBack();
   }, [goBack]);
-
-  // const checkTodaysWeekday = useCallback(() => {
-  //   const today = new Date();
-  //   if (
-  // }, []);
 
   return (
     <LinearGradient
@@ -109,9 +107,10 @@ const ChurchDetails: React.FC = () => {
           <ScheduleContainer>
             <SundayContainer>
               <WeekDayText>Domingo</WeekDayText>
-
               <HourContainer>
-                <Hour>07:30</Hour>
+                {massHours?.sunday.map((hour, index) => (
+                  <Hour key={index}>{hour}</Hour>
+                ))}
               </HourContainer>
             </SundayContainer>
 
@@ -120,10 +119,9 @@ const ChurchDetails: React.FC = () => {
             <SundayContainer>
               <WeekDayText>Segunda-feira</WeekDayText>
               <HourContainer>
-                {church.massHours.sunday.map(hour => (
-                  <Hour>{hour}</Hour>
+                {massHours?.monday.map((hour, index) => (
+                  <Hour key={index}>{hour}</Hour>
                 ))}
-                ;
               </HourContainer>
             </SundayContainer>
 
@@ -132,7 +130,9 @@ const ChurchDetails: React.FC = () => {
             <SundayContainer>
               <WeekDayText>Terça-feira</WeekDayText>
               <HourContainer>
-                <Hour>07:30</Hour>
+                {massHours?.tuesday.map((hour, index) => (
+                  <Hour key={index}>{hour}</Hour>
+                ))}
               </HourContainer>
             </SundayContainer>
 
@@ -141,7 +141,9 @@ const ChurchDetails: React.FC = () => {
             <SundayContainer>
               <WeekDayText>Quarta-feira</WeekDayText>
               <HourContainer>
-                <Hour>07:30</Hour>
+                {massHours?.wednesday.map((hour, index) => (
+                  <Hour key={index}>{hour}</Hour>
+                ))}
               </HourContainer>
             </SundayContainer>
 
@@ -150,7 +152,9 @@ const ChurchDetails: React.FC = () => {
             <SundayContainer>
               <WeekDayText>Quinta-feira</WeekDayText>
               <HourContainer>
-                <Hour>07:30</Hour>
+                {massHours?.thursday.map((hour, index) => (
+                  <Hour key={index}>{hour}</Hour>
+                ))}
               </HourContainer>
             </SundayContainer>
 
@@ -159,16 +163,22 @@ const ChurchDetails: React.FC = () => {
             <SundayContainer>
               <WeekDayText>Sexta-feira</WeekDayText>
               <HourContainer>
-                <Hour>07:30</Hour>
+                {massHours?.friday.map((hour, index) => (
+                  <Hour key={index}>{hour}</Hour>
+                ))}
               </HourContainer>
             </SundayContainer>
 
             <HourDivider />
 
             <SundayContainer>
-              <WeekDayText>Sábado</WeekDayText>
+              <WeekDayText isToday>Sábado</WeekDayText>
               <HourContainer>
-                <Hour>07:30</Hour>
+                {massHours?.saturday.map((hour, index) => (
+                  <Hour isToday key={index}>
+                    {hour}
+                  </Hour>
+                ))}
               </HourContainer>
             </SundayContainer>
           </ScheduleContainer>

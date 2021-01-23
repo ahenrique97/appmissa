@@ -23,7 +23,8 @@ export const ChurchImage = styled.Image`
   width: 120px;
   border-radius: 60px;
 
-  border: 4px solid #fff;
+  border-width: 4px;
+  border-color: #fff;
 `;
 
 export const InfoContainer = styled.View`
@@ -92,12 +93,13 @@ export const SundayContainer = styled.View`
   justify-content: space-between;
   position: relative;
 
+  font-family: 'Roboto-Bold';
+
   margin-bottom: 3px;
 `;
 
 export const WeekDayText = styled.Text<Today>`
   font-size: 14px;
-  font-family: 'Roboto-Regular';
 
   ${props =>
     props.isToday &&
