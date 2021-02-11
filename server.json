@@ -1,7 +1,8 @@
 {
-  "churchs": [
+  "churches": [
     {
       "id": 0,
+      "localization_url": "https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+de+F%C3%A1tima+e+Sant'Ana/@-0.0415832,-51.174309,17z/data=!4m19!1m13!4m12!1m4!2m2!1d-51.1704668!2d-0.0407782!4e1!1m6!1m2!1s0x929e1cc97c5a11a1:0xfb0f7e94758f78e4!2sigreja+nossa+senhora+de+fatima+e+santana!2m2!1d-51.1737549!2d-0.0423883!3m4!1s0x929e1cc97c5a11a1:0xfb0f7e94758f78e4!8m2!3d-0.0423883!4d-51.1737549",
       "image_url": "https://fastly.4sqi.net/img/general/200x200/19301572_Jcq_LaLOMe_RMT7wWcvbmN78-7CLmsELZV5vSohNifo.jpg",
       "name": "Nossa Senhora de Fátima",
       "address": "Avenida 15 de Novembro",
@@ -9,18 +10,40 @@
       "city": "Santana",
       "zipcode": "68925-141",
       "addressComplement": "Em frente a Praça Cívica de Santana",
-      "massHours": {
-        "sunday": ["07:00", "09:30", "19:30"],
-        "monday": [],
-        "tuesday": ["18:00"],
-        "wednesday": ["18:00"],
-        "thursday": ["18:00"],
-        "friday": ["18:00"],
-        "saturday": ["19:30"]
-      }
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
     },
     {
       "id": 1,
+      "localization_url": "https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+do+Perp%C3%A9tuo+Socorro/@-0.0434445,-51.1520422,13.5z/data=!4m8!1m2!2m1!1sperp%C3%A9tuo+socorro!3m4!1s0x0:0x7ece0736c737e55a!8m2!3d-0.0538909!4d-51.1636412",
       "image_url": "https://ocnoticias.com.br/wp-content/uploads/2020/06/paroquiasantanaap.jpg",
       "name": "Nossa Senhora do Perpétuo Socorro",
       "address": "Avenida 15 de Novembro",
@@ -28,18 +51,40 @@
       "city": "Santana",
       "zipcode": "68925-141",
       "addressComplement": "Em frente a Praça Cívica de Santana",
-      "massHours": {
-        "sunday": ["07:00", "09:30", "19:30"],
-        "monday": [],
-        "tuesday": ["18:00"],
-        "wednesday": ["18:00"],
-        "thursday": ["18:00"],
-        "friday": ["18:00"],
-        "saturday": ["19:30"]
-      }
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
     },
     {
       "id": 2,
+      "localization_url": "https://www.google.com/maps/place/Igreja+de+Sta.+Rita+de+C%C3%A1ssia/@-0.0262042,-51.1686152,16.5z/data=!4m5!3m4!1s0x929e1d26d9d27897:0x49a468388da9fb54!8m2!3d-0.0271161!4d-51.164461",
       "image_url": "https://1.bp.blogspot.com/-hydf6n1kAm0/Wk5NZg86asI/AAAAAAAANfM/dm62dU40NAABC_GMTzD38Ln-1CqyhB0rACLcBGAs/s1600/P1060576.JPG",
       "name": "Santa Rita de Cássia",
       "address": "Avenida 15 de Novembro",
@@ -47,18 +92,40 @@
       "city": "Santana",
       "zipcode": "68925-141",
       "addressComplement": "Em frente a Praça Cívica de Santana",
-      "massHours": {
-        "sunday": ["07:00", "09:30", "19:30"],
-        "monday": [],
-        "tuesday": ["18:00"],
-        "wednesday": ["18:00"],
-        "thursday": ["18:00"],
-        "friday": ["18:00"],
-        "saturday": ["19:30"]
-      }
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
     },
     {
       "id": 3,
+      "localization_url": "https://www.google.com/maps/place/Igreja+S%C3%A3o+Jo%C3%A3o/@-0.0368616,-51.168376,17z/data=!3m1!4b1!4m5!3m4!1s0x929e1cc4d9b7264d:0xea263fccc9a3fbf8!8m2!3d-0.036867!4d-51.1661873",
       "image_url": "https://i.imgur.com/YlHmrGh.jpg",
       "name": "São João",
       "address": "Avenida 15 de Novembro",
@@ -66,34 +133,487 @@
       "city": "Santana",
       "zipcode": "68925-141",
       "addressComplement": "Em frente a Praça Cívica de Santana",
-      "massHours": {
-        "sunday": ["07:00", "09:30", "19:30"],
-        "monday": [],
-        "tuesday": ["18:00"],
-        "wednesday": ["18:00"],
-        "thursday": ["18:00"],
-        "friday": ["18:00"],
-        "saturday": ["19:30"]
-      }
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
     },
     {
       "id": 4,
-      "image_url": "https://lh3.googleusercontent.com/proxy/4zSSJmvTvUVLf9jlz-vz7C5CHjYS4LDBYbBcoRc1poznWD22v7RqQ8Ji2lwBvfpP-YPYZjoQZZ3FiZ2n9-WjXcQU3hqwPE2HBQ",
+      "localization_url": "https://www.google.com/maps/place/Igreja+Sao+Benedito.+Paroquia+Sao+Pio/@-0.017287,-51.1770549,18z/data=!4m8!1m2!2m1!1zc8OjbyBwaW8!3m4!1s0x0:0x5eebb14e3d205975!8m2!3d-0.0168798!4d-51.1766546",
+      "image_url": "https://i.imgur.com/4NRa0Bd.jpg",
       "name": "São Pio de Pietrelcina",
       "address": "Avenida 15 de Novembro",
       "neighborhood": "Central",
       "city": "Santana",
       "zipcode": "68925-141",
       "addressComplement": "Em frente a Praça Cívica de Santana",
-      "massHours": {
-        "sunday": ["07:00", "09:30", "19:30"],
-        "monday": [],
-        "tuesday": ["18:00"],
-        "wednesday": ["18:00"],
-        "thursday": ["18:00"],
-        "friday": ["18:00"],
-        "saturday": ["19:30"]
-      }
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "localization_url": "https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+de+F%C3%A1tima+e+Sant'Ana/@-0.0415832,-51.174309,17z/data=!4m19!1m13!4m12!1m4!2m2!1d-51.1704668!2d-0.0407782!4e1!1m6!1m2!1s0x929e1cc97c5a11a1:0xfb0f7e94758f78e4!2sigreja+nossa+senhora+de+fatima+e+santana!2m2!1d-51.1737549!2d-0.0423883!3m4!1s0x929e1cc97c5a11a1:0xfb0f7e94758f78e4!8m2!3d-0.0423883!4d-51.1737549",
+      "image_url": "https://fastly.4sqi.net/img/general/200x200/19301572_Jcq_LaLOMe_RMT7wWcvbmN78-7CLmsELZV5vSohNifo.jpg",
+      "name": "Nossa Senhora de Fátima",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "localization_url": "https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+do+Perp%C3%A9tuo+Socorro/@-0.0434445,-51.1520422,13.5z/data=!4m8!1m2!2m1!1sperp%C3%A9tuo+socorro!3m4!1s0x0:0x7ece0736c737e55a!8m2!3d-0.0538909!4d-51.1636412",
+      "image_url": "https://ocnoticias.com.br/wp-content/uploads/2020/06/paroquiasantanaap.jpg",
+      "name": "Nossa Senhora do Perpétuo Socorro",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "localization_url": "https://www.google.com/maps/place/Igreja+de+Sta.+Rita+de+C%C3%A1ssia/@-0.0262042,-51.1686152,16.5z/data=!4m5!3m4!1s0x929e1d26d9d27897:0x49a468388da9fb54!8m2!3d-0.0271161!4d-51.164461",
+      "image_url": "https://1.bp.blogspot.com/-hydf6n1kAm0/Wk5NZg86asI/AAAAAAAANfM/dm62dU40NAABC_GMTzD38Ln-1CqyhB0rACLcBGAs/s1600/P1060576.JPG",
+      "name": "Santa Rita de Cássia",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "localization_url": "https://www.google.com/maps/place/Igreja+S%C3%A3o+Jo%C3%A3o/@-0.0368616,-51.168376,17z/data=!3m1!4b1!4m5!3m4!1s0x929e1cc4d9b7264d:0xea263fccc9a3fbf8!8m2!3d-0.036867!4d-51.1661873",
+      "image_url": "https://i.imgur.com/YlHmrGh.jpg",
+      "name": "São João",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "localization_url": "https://www.google.com/maps/place/Igreja+Sao+Benedito.+Paroquia+Sao+Pio/@-0.017287,-51.1770549,18z/data=!4m8!1m2!2m1!1zc8OjbyBwaW8!3m4!1s0x0:0x5eebb14e3d205975!8m2!3d-0.0168798!4d-51.1766546",
+      "image_url": "https://i.imgur.com/4NRa0Bd.jpg",
+      "name": "São Pio de Pietrelcina",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "localization_url": "https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+de+F%C3%A1tima+e+Sant'Ana/@-0.0415832,-51.174309,17z/data=!4m19!1m13!4m12!1m4!2m2!1d-51.1704668!2d-0.0407782!4e1!1m6!1m2!1s0x929e1cc97c5a11a1:0xfb0f7e94758f78e4!2sigreja+nossa+senhora+de+fatima+e+santana!2m2!1d-51.1737549!2d-0.0423883!3m4!1s0x929e1cc97c5a11a1:0xfb0f7e94758f78e4!8m2!3d-0.0423883!4d-51.1737549",
+      "image_url": "https://fastly.4sqi.net/img/general/200x200/19301572_Jcq_LaLOMe_RMT7wWcvbmN78-7CLmsELZV5vSohNifo.jpg",
+      "name": "Nossa Senhora de Fátima",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "localization_url": "https://www.google.com/maps/place/Par%C3%B3quia+Nossa+Senhora+do+Perp%C3%A9tuo+Socorro/@-0.0434445,-51.1520422,13.5z/data=!4m8!1m2!2m1!1sperp%C3%A9tuo+socorro!3m4!1s0x0:0x7ece0736c737e55a!8m2!3d-0.0538909!4d-51.1636412",
+      "image_url": "https://ocnoticias.com.br/wp-content/uploads/2020/06/paroquiasantanaap.jpg",
+      "name": "Nossa Senhora do Perpétuo Socorro",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "localization_url": "https://www.google.com/maps/place/Igreja+de+Sta.+Rita+de+C%C3%A1ssia/@-0.0262042,-51.1686152,16.5z/data=!4m5!3m4!1s0x929e1d26d9d27897:0x49a468388da9fb54!8m2!3d-0.0271161!4d-51.164461",
+      "image_url": "https://1.bp.blogspot.com/-hydf6n1kAm0/Wk5NZg86asI/AAAAAAAANfM/dm62dU40NAABC_GMTzD38Ln-1CqyhB0rACLcBGAs/s1600/P1060576.JPG",
+      "name": "Santa Rita de Cássia",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "localization_url": "https://www.google.com/maps/place/Igreja+S%C3%A3o+Jo%C3%A3o/@-0.0368616,-51.168376,17z/data=!3m1!4b1!4m5!3m4!1s0x929e1cc4d9b7264d:0xea263fccc9a3fbf8!8m2!3d-0.036867!4d-51.1661873",
+      "image_url": "https://i.imgur.com/YlHmrGh.jpg",
+      "name": "São João",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "localization_url": "https://www.google.com/maps/place/Igreja+Sao+Benedito.+Paroquia+Sao+Pio/@-0.017287,-51.1770549,18z/data=!4m8!1m2!2m1!1zc8OjbyBwaW8!3m4!1s0x0:0x5eebb14e3d205975!8m2!3d-0.0168798!4d-51.1766546",
+      "image_url": "https://i.imgur.com/4NRa0Bd.jpg",
+      "name": "São Pio de Pietrelcina",
+      "address": "Avenida 15 de Novembro",
+      "neighborhood": "Central",
+      "city": "Santana",
+      "zipcode": "68925-141",
+      "addressComplement": "Em frente a Praça Cívica de Santana",
+      "masses": [
+        {
+          "name": "Domingo",
+          "hours": ["07:00", "09:30", "18:30"]
+        },
+        {
+          "name": "Segunda-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Terça-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quarta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Quinta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sexta-feira",
+          "hours": ["18:00"]
+        },
+        {
+          "name": "Sábado",
+          "hours": ["18:30"]
+        }
+      ]
     }
   ]
 }

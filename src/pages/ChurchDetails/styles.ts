@@ -6,13 +6,52 @@ interface Today {
   isToday?: boolean;
 }
 
+interface lastDayElementProps {
+  lastDayElement?: number;
+}
+
+interface Loading {
+  isLoadingProp: boolean;
+}
+
 export const Container = styled.View`
-  padding: 20px 20px;
+  padding: 20px;
 `;
 
-export const BackButton = styled.TouchableOpacity`
-  padding-left: 1px;
+export const LoadingContainer = styled.View<Loading>`
+  padding: 20px;
+  height: 100%;
+
+  ${props =>
+    props.isLoadingProp === true &&
+    css`
+      display: flex;
+    `}
+
+  ${props =>
+    props.isLoadingProp === false &&
+    css`
+      display: none;
+    `}
 `;
+
+export const ContentContainer = styled.View<Loading>`
+  padding: 20px 20px;
+
+  ${props =>
+    props.isLoadingProp === true &&
+    css`
+      display: none;
+    `}
+
+  ${props =>
+    props.isLoadingProp === false &&
+    css`
+      display: flex;
+    `}
+`;
+
+export const BackButton = styled.TouchableOpacity``;
 
 export const ImgContainer = styled.View`
   align-items: center;
@@ -85,17 +124,33 @@ export const Title = styled.Text`
 `;
 
 export const ScheduleContainer = styled.View`
+  justify-content: space-between;
   width: 100%;
 `;
 
-export const SundayContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
+export const WeekdayContainer = styled.View`
   position: relative;
 
-  font-family: 'Roboto-Bold';
-
   margin-bottom: 3px;
+`;
+
+export const EachDayContainer = styled.View<lastDayElementProps>`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 5px;
+  border-bottom-width: 1px;
+  margin-bottom: 5px;
+  border-color: #d4d4d4;
+
+  ${props =>
+    props.lastDayElement === 6 &&
+    css`
+      padding-bottom: 0;
+      border-bottom-width: 0;
+      margin-bottom: 0;
+    `}
 `;
 
 export const WeekDayText = styled.Text<Today>`
@@ -110,14 +165,7 @@ export const WeekDayText = styled.Text<Today>`
 
 export const HourContainer = styled.View`
   flex-direction: column;
-`;
-
-export const HourDivider = styled.View`
-  height: 1px;
-  width: 100%;
-  margin: 4px 0;
-
-  background-color: #d4d4d4;
+  max-width: 36px;
 `;
 
 export const Hour = styled.Text<Today>`

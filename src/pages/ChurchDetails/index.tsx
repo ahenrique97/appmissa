@@ -1,15 +1,19 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
+import { Linking, StyleSheet } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import getDay from 'date-fns/getDay';
+import getISODay from 'date-fns/getISODay';
 
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
 
 import api from '../../services/api';
 
+import SkeletonPlaceholder from '../../components/Skeletons/ChurchDetailsSkeleton';
+
 import {
   Container,
+  ContentContainer,
+  LoadingContainer,
   BackButton,
   ImgContainer,
   ChurchImage,
@@ -21,12 +25,13 @@ import {
   ChurchScheduleContainer,
   Title,
   ScheduleContainer,
-  SundayContainer,
+  WeekdayContainer,
+  EachDayContainer,
   WeekDayText,
   HourContainer,
-  HourDivider,
   Hour,
 } from './styles';
+import Skeleton from 'react-loading-skeleton';
 
 interface RouteParams {
   churchId: string;
@@ -34,28 +39,27 @@ interface RouteParams {
 
 export interface Church {
   id: string;
-  name: string;
+  localization_url: string;
   image_url: string;
+  name: string;
   address: string;
   neighborhood: string;
   city: string;
   zipcode: string;
   addressComplement: string;
+  masses: [];
 }
 
-export interface MassHours {
-  sunday: [];
-  monday: [];
-  tuesday: [];
-  wednesday: [];
-  thursday: [];
-  friday: [];
-  saturday: [];
+interface Masses extends Church {
+  name: string;
+  hours: string;
 }
 
 const ChurchDetails: React.FC = () => {
   const [church, setChurch] = useState<Church>({} as Church);
-  const [massHours, setMassHours] = useState<MassHours>();
+  const [masses, setMasses] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { goBack } = useNavigation();
 
@@ -64,11 +68,29 @@ const ChurchDetails: React.FC = () => {
   const [selectedChurchId] = useState(routeParams.churchId);
 
   useEffect(() => {
-    api.get(`/churchs/${selectedChurchId}`).then(response => {
-      setChurch(response.data);
-      setMassHours(response.data.massHours);
-    });
+    setIsLoading(true);
+    getChurchDetails();
   }, []);
+
+  async function getChurchDetails(): Promise<void> {
+    try {
+      await api.get(`/churches/${selectedChurchId}`).then(response => {
+        setIsLoading(false);
+        setChurch(response.data);
+        setMasses(response.data.masses);
+      });
+    } catch (err) {
+      return console.log('Problema na requisição, verifique sua conexão');
+    }
+  }
+
+  const currentDayInTheWeek = useMemo(() => getISODay(new Date()), []);
+
+  const renderLoadingElement = () => {
+    if (isLoading) {
+      return <SkeletonPlaceholder />;
+    }
+  };
 
   const navigateBack = useCallback(() => {
     goBack();
@@ -84,105 +106,51 @@ const ChurchDetails: React.FC = () => {
           <Icon name="arrow-left" size={34} color="#000" />
         </BackButton>
 
-        <ImgContainer>
-          <ChurchImage source={{ uri: church.image_url }} />
-        </ImgContainer>
+        <LoadingContainer isLoadingProp={isLoading}>
+          {renderLoadingElement()}
+        </LoadingContainer>
 
-        <InfoContainer>
-          <ChurchName>{church.name}</ChurchName>
-          <ChurchAdress>
-            {church.address} - {church.neighborhood}, {church.city},{' '}
-            {church.zipcode} {'\n'}
-            {church.addressComplement}
-          </ChurchAdress>
+        <ContentContainer isLoadingProp={isLoading}>
+          <ImgContainer>
+            <ChurchImage source={{ uri: church.image_url }} />
+          </ImgContainer>
 
-          <LocalizationButton>
-            <LocalizationButtonText>Ver localização</LocalizationButtonText>
-          </LocalizationButton>
-        </InfoContainer>
+          <InfoContainer>
+            <ChurchName>{church.name}</ChurchName>
+            <ChurchAdress>
+              {church.address} - {church.neighborhood}, {church.city},{' '}
+              {church.zipcode} {'\n'}
+              {church.addressComplement}
+            </ChurchAdress>
 
-        <ChurchScheduleContainer>
-          <Title>Missas</Title>
+            <LocalizationButton
+              onPress={() => Linking.openURL(church.localization_url)}
+            >
+              <LocalizationButtonText>Ver localização</LocalizationButtonText>
+            </LocalizationButton>
+          </InfoContainer>
 
-          <ScheduleContainer>
-            <SundayContainer>
-              <WeekDayText>Domingo</WeekDayText>
-              <HourContainer>
-                {massHours?.sunday.map((hour, index) => (
-                  <Hour key={index}>{hour}</Hour>
+          <ChurchScheduleContainer>
+            <Title>Missas</Title>
+
+            <ScheduleContainer>
+              <WeekdayContainer>
+                {masses.map((data: Masses, index: number) => (
+                  <EachDayContainer key={index} lastDayElement={index}>
+                    <WeekDayText isToday={currentDayInTheWeek === index}>
+                      {data.name}
+                    </WeekDayText>
+                    <HourContainer>
+                      <Hour isToday={currentDayInTheWeek === index}>
+                        {data.hours}
+                      </Hour>
+                    </HourContainer>
+                  </EachDayContainer>
                 ))}
-              </HourContainer>
-            </SundayContainer>
-
-            <HourDivider />
-
-            <SundayContainer>
-              <WeekDayText>Segunda-feira</WeekDayText>
-              <HourContainer>
-                {massHours?.monday.map((hour, index) => (
-                  <Hour key={index}>{hour}</Hour>
-                ))}
-              </HourContainer>
-            </SundayContainer>
-
-            <HourDivider />
-
-            <SundayContainer>
-              <WeekDayText>Terça-feira</WeekDayText>
-              <HourContainer>
-                {massHours?.tuesday.map((hour, index) => (
-                  <Hour key={index}>{hour}</Hour>
-                ))}
-              </HourContainer>
-            </SundayContainer>
-
-            <HourDivider />
-
-            <SundayContainer>
-              <WeekDayText>Quarta-feira</WeekDayText>
-              <HourContainer>
-                {massHours?.wednesday.map((hour, index) => (
-                  <Hour key={index}>{hour}</Hour>
-                ))}
-              </HourContainer>
-            </SundayContainer>
-
-            <HourDivider />
-
-            <SundayContainer>
-              <WeekDayText>Quinta-feira</WeekDayText>
-              <HourContainer>
-                {massHours?.thursday.map((hour, index) => (
-                  <Hour key={index}>{hour}</Hour>
-                ))}
-              </HourContainer>
-            </SundayContainer>
-
-            <HourDivider />
-
-            <SundayContainer>
-              <WeekDayText>Sexta-feira</WeekDayText>
-              <HourContainer>
-                {massHours?.friday.map((hour, index) => (
-                  <Hour key={index}>{hour}</Hour>
-                ))}
-              </HourContainer>
-            </SundayContainer>
-
-            <HourDivider />
-
-            <SundayContainer>
-              <WeekDayText isToday>Sábado</WeekDayText>
-              <HourContainer>
-                {massHours?.saturday.map((hour, index) => (
-                  <Hour isToday key={index}>
-                    {hour}
-                  </Hour>
-                ))}
-              </HourContainer>
-            </SundayContainer>
-          </ScheduleContainer>
-        </ChurchScheduleContainer>
+              </WeekdayContainer>
+            </ScheduleContainer>
+          </ChurchScheduleContainer>
+        </ContentContainer>
       </Container>
     </LinearGradient>
   );
