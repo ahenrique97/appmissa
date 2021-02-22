@@ -5,11 +5,12 @@ Aplicação mobile feita em React Native onde lista igrejas católicas da cidade
 
 <h2>Screenshots do App</h2>
 
-![screenshot home](https://i.imgur.com/IKsa9Uu.png)
+<img src="https://i.imgur.com/IKsa9Uu.png" width="400"/>
 
-![screenshot details](https://i.imgur.com/txAxuiM.png)
 
-![screenshot googlemaps](https://i.imgur.com/11XfNj2.png)
+<img src="https://i.imgur.com/txAxuiM.png" width="400"/>
+
+<img src="https://i.imgur.com/11XfNj2.png" width="400"/>
 
 <h2>Executando o projeto</h2>
 <ul>
