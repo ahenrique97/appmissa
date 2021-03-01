@@ -1,18 +1,14 @@
 import styled, { css } from 'styled-components/native';
 import { FlatList } from 'react-native';
-import { Church } from './index';
 import { RectButton } from 'react-native-gesture-handler';
 
-interface isFoundProps {
-  isFound: boolean;
-}
-
-interface Loading {
+interface isLoading {
   isLoadingProp: boolean;
 }
 
 export const Container = styled.View`
   padding: 20px;
+  width: 100%;
 `;
 
 export const SearchBarContainer = styled.View`
@@ -43,7 +39,7 @@ export const ChurchListTitle = styled.Text`
   font-family: 'Roboto-Bold';
 `;
 
-export const LoadingContainer = styled.View<Loading>`
+export const LoadingContainer = styled.View<isLoading>`
   align-items: center;
 
   ${props =>
@@ -59,7 +55,7 @@ export const LoadingContainer = styled.View<Loading>`
     `}
 `;
 
-export const ListContainer = styled.View<Loading>`
+export const ListContainer = styled.View<isLoading>`
   ${props =>
     props.isLoadingProp === true &&
     css`
@@ -73,22 +69,16 @@ export const ListContainer = styled.View<Loading>`
     `}
 `;
 
-export const ChurchsList = styled(FlatList as new () => FlatList<Church>)``;
+export const ChurchsList = styled(FlatList as new () => FlatList)``;
 
-export const ChurchNotFoundText = styled.Text<isFoundProps>`
+export const ChurchNotFoundText = styled.Text`
   font-size: 18px;
   margin: 30px auto;
   color: #000;
   font-family: 'Roboto-Bold';
-
-  ${props =>
-    props.isFound === true &&
-    css`
-      display: none;
-    `};
 `;
 
-export const ChurchContainer = styled(RectButton)`
+export const ChurchContainer = styled.TouchableOpacity`
   width: 100%;
   height: 99px;
   margin-bottom: 10px;

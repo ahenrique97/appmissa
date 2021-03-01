@@ -31,7 +31,8 @@ import {
   HourContainer,
   Hour,
 } from './styles';
-import Skeleton from 'react-loading-skeleton';
+
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface RouteParams {
   churchId: string;
@@ -102,55 +103,57 @@ const ChurchDetails: React.FC = () => {
       style={styles.linearGradient}
     >
       <Container>
-        <BackButton onPress={navigateBack}>
-          <Icon name="arrow-left" size={34} color="#000" />
-        </BackButton>
+        <ScrollView>
+          <BackButton onPress={navigateBack}>
+            <Icon name="arrow-left" size={34} color="#000" />
+          </BackButton>
 
-        <LoadingContainer isLoadingProp={isLoading}>
-          {renderLoadingElement()}
-        </LoadingContainer>
+          <LoadingContainer isLoadingProp={isLoading}>
+            {renderLoadingElement()}
+          </LoadingContainer>
 
-        <ContentContainer isLoadingProp={isLoading}>
-          <ImgContainer>
-            <ChurchImage source={{ uri: church.image_url }} />
-          </ImgContainer>
+          <ContentContainer isLoadingProp={isLoading}>
+            <ImgContainer>
+              <ChurchImage source={{ uri: church.image_url }} />
+            </ImgContainer>
 
-          <InfoContainer>
-            <ChurchName>{church.name}</ChurchName>
-            <ChurchAdress>
-              {church.address} - {church.neighborhood}, {church.city},{' '}
-              {church.zipcode} {'\n'}
-              {church.addressComplement}
-            </ChurchAdress>
+            <InfoContainer>
+              <ChurchName>{church.name}</ChurchName>
+              <ChurchAdress>
+                {church.address} - {church.neighborhood}, {church.city},{' '}
+                {church.zipcode} {'\n'}
+                {church.addressComplement}
+              </ChurchAdress>
 
-            <LocalizationButton
-              onPress={() => Linking.openURL(church.localization_url)}
-            >
-              <LocalizationButtonText>Ver localização</LocalizationButtonText>
-            </LocalizationButton>
-          </InfoContainer>
+              <LocalizationButton
+                onPress={() => Linking.openURL(church.localization_url)}
+              >
+                <LocalizationButtonText>Ver localização</LocalizationButtonText>
+              </LocalizationButton>
+            </InfoContainer>
 
-          <ChurchScheduleContainer>
-            <Title>Missas</Title>
+            <ChurchScheduleContainer>
+              <Title>Missas</Title>
 
-            <ScheduleContainer>
-              <WeekdayContainer>
-                {masses.map((data: Masses, index: number) => (
-                  <EachDayContainer key={index} lastDayElement={index}>
-                    <WeekDayText isToday={currentDayInTheWeek === index}>
-                      {data.name}
-                    </WeekDayText>
-                    <HourContainer>
-                      <Hour isToday={currentDayInTheWeek === index}>
-                        {data.hours}
-                      </Hour>
-                    </HourContainer>
-                  </EachDayContainer>
-                ))}
-              </WeekdayContainer>
-            </ScheduleContainer>
-          </ChurchScheduleContainer>
-        </ContentContainer>
+              <ScheduleContainer>
+                <WeekdayContainer>
+                  {masses.map((data: Masses, index: number) => (
+                    <EachDayContainer key={index} lastDayElement={index}>
+                      <WeekDayText isToday={currentDayInTheWeek === index}>
+                        {data.name}
+                      </WeekDayText>
+                      <HourContainer>
+                        <Hour isToday={currentDayInTheWeek === index}>
+                          {data.hours}
+                        </Hour>
+                      </HourContainer>
+                    </EachDayContainer>
+                  ))}
+                </WeekdayContainer>
+              </ScheduleContainer>
+            </ChurchScheduleContainer>
+          </ContentContainer>
+        </ScrollView>
       </Container>
     </LinearGradient>
   );

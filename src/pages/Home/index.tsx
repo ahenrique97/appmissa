@@ -47,7 +47,7 @@ const Home: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
 
   useEffect(() => {
     setIsLoading(true);
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
       });
     } catch (error) {
       console.log('Problema na requisição, verifique sua conexão', error);
-      return null;
+      return;
     }
   }
 
@@ -86,20 +86,26 @@ const Home: React.FC = () => {
     return false;
   }
 
+  const renderNoChurchsFound = () => {
+    if (churchesFoundBySearching.length === 0 && churchs.length > 0) {
+      return <ChurchNotFoundText>Nenhuma igreja encontrada</ChurchNotFoundText>;
+    }
+  };
+
   const renderLoadingElement = () => {
     if (isLoading) {
       return <SkeletonPlaceholder />;
     }
   };
 
-  const navigateToChurchDetails = useCallback(
-    (churchId: number) => {
-      navigate('ChurchDetails', { churchId });
-      setInputText('');
-      getChurches();
-    },
-    [navigate],
-  );
+  // const navigateToChurchDetails = useCallback(
+  //   (churchId: number) => {
+  //     navigate('ChurchDetails', { churchId });
+  //     setInputText('');
+  //     getChurches();
+  //   },
+  //   [navigate],
+  // );
 
   return (
     <>
@@ -121,18 +127,25 @@ const Home: React.FC = () => {
 
           <ChurchListTitle>Igrejas</ChurchListTitle>
 
+          {renderNoChurchsFound()}
+
           <LoadingContainer isLoadingProp={isLoading}>
             {renderLoadingElement()}
           </LoadingContainer>
 
           <ListContainer isLoadingProp={isLoading}>
             <ChurchsList
+              testID="flat-list"
               showsVerticalScrollIndicator={false}
               data={churchesFoundBySearching}
               keyExtractor={church => church.id.toString()}
               renderItem={({ item: church }) => (
                 <ChurchContainer
-                  onPress={() => navigateToChurchDetails(church.id)}
+                  onPress={() =>
+                    navigation.navigate('ChurchDetails', {
+                      churchId: church.id,
+                    })
+                  }
                 >
                   <ChurchImage
                     source={{ uri: church.image_url }}
